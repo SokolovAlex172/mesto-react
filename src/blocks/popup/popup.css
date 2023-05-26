@@ -12,5 +12,34 @@
     display: flex;
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.2s linear;
+    transition: all .5s;
+    animation: fade-out .5s forwards;
+    
+}
+
+.popup .popup__container {
+  animation: slide-out .5s forwards;
+}
+.popup .popup__container-image {
+    animation: slide-out .5s forwards;
+  }
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-15px);
+  }
 }

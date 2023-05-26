@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function ImagePopup(props) {
 
-  const className = `popup popup_type_image image-popup ${props.card.name ? "popup_opened" : ""}`
+  const className = `popup popup_black  popup_type_image image-popup ${props.card.name ? "popup_opened" : ""}`
   return (
     <div className={className}
     id="popup-image"

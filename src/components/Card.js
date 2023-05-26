@@ -5,10 +5,9 @@ export default function Card({ card: {id,  link, name, likes }, onCardClick }) {
 
   return(
     <article className="places__item" id={id}>
-      <button 
+      <button
         className="places__delete" 
-        type="button">
-      </button>
+        type="button"/>
       <img className="places__image" 
         src={link} 
         alt={name}
