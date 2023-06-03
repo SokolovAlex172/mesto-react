@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import {api} from '../utils/Api';
+import { useContext } from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import Card from "./Card";
 
 import edit from "../image/edit.svg";
@@ -9,33 +9,22 @@ export default function Main({
   onEditAvatar,
   onEditProfile,
   onCardClick,
-  onAddPlace
+  onAddPlace,
+  onCardLike,
+  onCardDelete,
+  cards,
 }) {
-  const [userAvatar, setUserAvatar] = useState("");
-  const [userName, setUserName] = useState("");
-  const [userDescription, setUserDescription] = useState("");
-  const [cards, setCards] = useState([]);
+  const currentUser = useContext(CurrentUserContext);
 
   const cardsList = cards.map(card => (
-    <Card key={card._id} card={card} onCardClick={onCardClick} />
+    <Card 
+    key={card._id} 
+    card={card} 
+    onCardClick={onCardClick} 
+    onCardLike={onCardLike}
+    onCardDelete={onCardDelete}
+    />
   ));
-
-  useEffect(() => {
-    Promise.all([
-      api.getUserInfo(),
-      api.getInitialCards(),
-    ])
-      .then(([userData, cards]) => {
-        setUserAvatar(userData.avatar);
-        setUserName(userData.name);
-        setUserDescription(userData.about);
-
-        setCards(cards);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, []);
 
   return (
     <main>
@@ -45,13 +34,13 @@ export default function Main({
           onClick={onEditAvatar}>
             <img 
               className='profile__avatar-img'
-              src={userAvatar} alt='Аватар'
+              src={currentUser.avatar} alt='Аватар'
                />
           </div>
           <div className="profile__info">
             <div className="profile__text">
-              <h1 className="profile__text-name">{userName}</h1>
-              <p className="profile__text-job">{userDescription}</p>
+              <h1 className="profile__text-name">{currentUser.name}</h1>
+              <p className="profile__text-job">{currentUser.about}</p>
             </div>
             <button 
               className="profile__edit" 

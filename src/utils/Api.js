@@ -63,6 +63,13 @@ export default class Api {
         body: JSON.stringify(avatar),
       }).then((res) => this._checkStatus(res));
     }
+
+    changeLikeCardStatus(id, isLiked) {
+      return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+        method: isLiked ? "DELETE" : "PUT",
+        headers: this._headers,
+      }).then((res) => this._checkStatus(res));
+    }
 }
 
 export const api = new Api({
