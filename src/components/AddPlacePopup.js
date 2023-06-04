@@ -30,6 +30,7 @@ export default function AddPlacePopup({
         isOpen={isOpen}
         onClose={onClose}
         onSubmit={handleSubmit}
+        textButton={"Создать"}
       >
           <div className="form__section">
               <input 
@@ -55,11 +56,6 @@ export default function AddPlacePopup({
                 ref={cardLinkRef}/>
               <span className="link-error form__input-error"></span>
             </div>
-              <button 
-                className="form__submit" 
-                type="submit"
-                >
-                  Создать</button>
         </PopupWithForm>
   );
 }

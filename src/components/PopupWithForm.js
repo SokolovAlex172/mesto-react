@@ -7,6 +7,7 @@ export default function PopupWithForm({
   isOpen,
   onClose,
   onSubmit,
+  textButton
   }) {
 
  
@@ -35,7 +36,12 @@ export default function PopupWithForm({
         onSubmit={onSubmit}
       >
        {children}
-       
+       <button
+          className= "form__submit"
+          type="submit"
+        >
+          {textButton}
+        </button>
       </form>
     </div>
   </div>

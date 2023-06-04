@@ -20,13 +20,8 @@ export default function ConfirmDeletePopup({
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={handleSubmit}
+      textButton={"Да, удалить карточку"}
       >
-      <button 
-        className="form__submit" 
-        type="submit"
-        onClose={onClose}>
-        Да, удалить карточку
-      </button>
     </PopupWithForm>
   );
 }

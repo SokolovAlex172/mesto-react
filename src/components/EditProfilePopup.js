@@ -40,7 +40,8 @@ export default function EditProfilePopup( {
     name={"edit-profile"}
     isOpen={isOpen}
     onClose={onClose}
-    onSubmit={handleSubmit}>
+    onSubmit={handleSubmit}
+    textButton={"Сохранить"}>
     <div className="form__section">
       <input 
         type="text" 
@@ -72,11 +73,6 @@ export default function EditProfilePopup( {
       />
       <span className="about-error form__input-error"></span>
     </div>
-    <button 
-      className="form__submit" 
-      type="submit"
-      >Сохранить
-    </button>
     </PopupWithForm>
   
   );
